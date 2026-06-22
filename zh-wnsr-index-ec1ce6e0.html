@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威尼斯人 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f4ed;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            color: #2f2e2b;
+            line-height: 1.75;
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+        }
+
+        /* 顶部导航 */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 1px solid #ddd6cb;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4b4a46;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            padding: 0.3rem 0;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #8b6f4c;
+            border-bottom-color: #8b6f4c;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin: 3.5rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: #2b2a27;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #6f6b63;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 核心介绍段落 */
+        .intro {
+            background: #ffffffd9;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+            border-left: 4px solid #c5b19b;
+        }
+
+        .intro p {
+            margin-bottom: 1.2rem;
+            text-indent: 2em;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 引用块 / 提示框 */
+        .tip-box {
+            background: #efe9e1;
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            margin: 2.2rem 0;
+            border: 1px solid #dbd1c3;
+            box-shadow: inset 0 1px 4px rgba(255,255,240,0.6);
+        }
+
+        .tip-box .label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #7b6a56;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-box p {
+            margin-top: 0.3rem;
+        }
+
+        /* 场景模块 —— 三列卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: transform 0.18s ease, box-shadow 0.2s;
+            border: 1px solid #ece5db;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .scene-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #3d3a33;
+            border-bottom: 2px solid #e2d7c9;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .scene-card p {
+            font-size: 0.97rem;
+            color: #4f4b43;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-card .highlight {
+            display: inline-block;
+            background: #f1ebe2;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #5f5342;
+            margin-top: 0.5rem;
+        }
+
+        /* 常见说明区域 (类似 FAQ 摘要) */
+        .faq-summary {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin: 2.8rem 0 2rem;
+            border: 1px solid #e4dacd;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #39352d;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            padding-left: 0.5rem;
+        }
+
+        .faq-item strong {
+            font-weight: 600;
+            color: #5d4f3b;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-left: 0.8rem;
+            color: #4d4840;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 链接嵌入句子 */
+        .inline-link {
+            color: #7a684f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cfbfab;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #3f3023;
+            text-decoration-color: #3f3023;
+        }
+
+        /* 页脚 */
+        footer {
+            border-top: 1px solid #dcd2c4;
+            padding: 1.8rem 0 0.8rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8c857a;
+        }
+
+        footer a {
+            color: #7a684f;
+            text-decoration: none;
+            border-bottom: 1px dotted #cfbfab;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .intro, .tip-box, .faq-summary {
+                padding: 1.2rem 1.2rem;
+            }
+            nav {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 顶部导航 -->
+    <nav>
+        <a href="#">简明指南</a>
+        <a href="#">访问提醒</a>
+        <a href="#">常见问题</a>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <div class="hero">
+        <h1>威尼斯人 · 轻量导航</h1>
+        <div class="sub">从基本认知到访问提示，一篇带您了解这座综合度假地</div>
+    </div>
+
+    <!-- 核心介绍 -->
+    <div class="intro">
+        <p>
+            「威尼斯人」这个名字，对许多旅行者而言并不陌生。它不只是一处酒店或赌场，而是一个以意大利水城为主题建造的度假综合体——室内运河、拱桥、广场与穹顶彩绘，共同营造出仿若置身威尼斯的氛围。然而，对于首次接触的人，更重要的或许是知道如何理性看待它：它是一个合法运营的休闲场所，拥有住宿、餐饮、购物和娱乐设施，同时也是一处需要提前了解相关规则与文化的目的地。
+        </p>
+        <p>
+            无论您是计划前往观光，还是仅仅出于好奇，了解基本的布局、入场要求以及当地习俗，都会让体验更加顺畅。本文便是一份精简的<strong>简明指南</strong>，同时附上几条务实的<strong>访问提醒</strong>，帮助您建立初步框架。
+        </p>
+    </div>
+
+    <!-- 提示块 -->
+    <div class="tip-box">
+        <div class="label">📌 出发前提醒</div>
+        <p>
+            未成年人禁止进入博彩区域；请随身携带有效身份证件。部分区域有衣着要求（如泳装不适宜进入购物区）。建议提前查阅官方网站的公告，尤其是节假日运营时间可能调整。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>🛶 室内运河</h3>
+            <p>贡多拉游船是标志性体验。船夫会唱意大利民歌，沿途经过仿真的小桥与壁画。运河两侧是商店与餐厅，适合拍照。</p>
+            <span class="highlight">建议时长：约40分钟</span>
+        </div>
+        <div class="scene-card">
+            <h3>🎭 表演与艺术</h3>
+            <p>定期有街头艺人、小型歌剧或声光表演。部分演出需要提前预约。留意广场中央的免费表演时段，常常有惊喜。</p>
+            <span class="highlight">免费/付费均有</span>
+        </div>
+        <div class="scene-card">
+            <h3>🍽️ 餐饮选择</h3>
+            <p>从中式茶楼到意式小馆，从自助餐厅到米其林星级，丰俭由人。建议提前订位，尤其是周末晚市。</p>
+            <span class="highlight">人均¥200–¥1500+</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-summary">
+        <h2>⚡ 常见说明 · 摘要</h2>
+        <div class="faq-item">
+            <strong>需要买门票吗？</strong>
+            <p>进入度假村内部的公共区域（购物、运河、赌场）一般免费。部分演出、景点或特殊展览需购票。</p>
+        </div>
+        <div class="faq-item">
+            <strong>拍照是否允许？</strong>
+            <p>公共区域允许拍照，但请避免拍摄他人隐私或赌桌区域（部分赌场禁止摄影）。使用闪光灯时请注意周围。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何前往？</strong>
+            <p>通常位于城市新区，可搭乘免费穿梭巴士或出租车。自驾者有大型停车场（部分时段收费）。详情请参考地图软件。</p>
+        </div>
+        <div class="faq-item">
+            <strong>官网信息最准确</strong>
+            <p>所有动态均以 <a href="https://zh-wnsr.com" class="inline-link">威尼斯人</a> 官方网站发布为准。包括促销、营业更改、防疫要求等，请养成出发前查阅的习惯。</p>
+        </div>
+    </div>
+
+    <!-- 一个额外的引用块，强调实用信息 -->
+    <div class="tip-box" style="background: #ede5db;">
+        <div class="label">🔍 访问小贴士</div>
+        <p>
+            如果这是您第一次到访，建议从早上开始，先逛运河区域，中午用餐，下午观看表演或逛逛赌场外围。这样节奏不紧不慢。另外，度假村内标识系统清晰，但规模很大，记得拿一份地图或使用手机导航。
+        </p>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>内容基于公开信息整理 · 仅供参考 · 实际以 <a href="https://zh-wnsr.com">威尼斯人</a> 最新公告为准</p>
+        <p style="margin-top: 0.6rem; font-size: 0.75rem;">&copy; 简明指南 · 非官方页面</p>
+    </footer>
+
+</div>
+</body>
+</html>
